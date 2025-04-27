@@ -51,7 +51,7 @@ if st.session_state.step == 0:
         if "si" in user_input.lower():
             st.session_state.step += 1
             st.session_state.history.append({"role": "assistant", "content": "💬 Comencemos con la evaluación."})
-            st.experimental_rerun()
+            st.rerun()
         else:
             st.session_state.history.append({"role": "assistant", "content": "Gracias por visitarnos. ¡Hasta pronto!"})
 else:
@@ -72,7 +72,7 @@ else:
             if not matched:
                 st.session_state.responses.append("medio")  # Respuesta neutra si no reconoce
             st.session_state.step += 1
-            st.experimental_rerun()
+            st.rerun()
     else:
         # Diagnóstico final
         bajo = st.session_state.responses.count('bajo')
@@ -89,4 +89,3 @@ else:
                 st.markdown("🌟 Tu riesgo de burnout es bajo. ¡Sigue cuidándote y manteniendo tu equilibrio laboral!")
 
             st.markdown("Recuerda que tu salud emocional es esencial para ofrecer una atención de calidad. \n\n✨ ¡Cuidarte también es cuidar a tus pacientes!")
-
